@@ -23,6 +23,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint-staged": "npx lint-staged",
+    "coverage": "react-scripts test --coverage",
     "prepare": "husky install",
     "format": "prettier --write ."
   },
