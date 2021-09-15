@@ -34,7 +34,7 @@ $danger: $red !default;
 $light: $gray-100 !default;
 $dark: $gray-800 !default;
 
-$colors: (
+$base-colors: (
   white: $white,
   gray-100: $gray-100,
   gray-200: $gray-200,
@@ -46,7 +46,6 @@ $colors: (
   gray-800: $gray-800,
   gray-900: $gray-900,
   black: $black,
-
   blue: $blue,
   indigo: $indigo,
   purple: $purple,
@@ -57,23 +56,41 @@ $colors: (
   green: $green,
   teal: $teal,
   cyan: $cyan,
+);
+
+$function-types: (
+  default,
+  primary,
+  secondary,
+  success,
+  info,
+  warning,
+  danger,
+  light,
+  dark
+);
+
+$function-colors: (
+  default: $primary,
+  primary: $primary,
   secondary: $secondary,
+  success: $success,
   info: $info,
   warning: $warning,
   danger: $danger,
   light: $light,
-  dark: $dark
+  dark: $dark,
 );
 
 //* 字体
 // 主字体
 // 等宽字体
 // 基础字体
-$font-family-sans-serif: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue',
-  Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
-  'Noto Color Emoji' !default;
-$font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
-  monospace !default;
+$font-family-sans-serif: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+  'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji',
+  'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji' !default;
+$font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas,
+  'Liberation Mono', 'Courier New', monospace !default;
 $font-family-base: $font-family-sans-serif !default;
 
 // 字体大小
@@ -197,48 +214,18 @@ $box-shadow: 0 0.5rem 1rem rgba($black, 0.15) !default;
 $box-shadow-lg: 0 1rem 3rem rgba($black, 0.175) !default;
 $box-shadow-inset: inset 0 1px 2px rgba($black, 0.075) !default;
 
-// 按钮
-// 按钮基本属性
-$btn-font-weight: 400;
-$btn-padding-y: 0.375rem !default;
-$btn-padding-x: 0.75rem !default;
-$btn-font-family: $font-family-base !default;
-$btn-font-size: $font-size-base !default;
-$btn-line-height: $line-height-base !default;
-
-//不同大小按钮的 padding 和 font size
-$btn-padding-y-sm: 0.25rem !default;
-$btn-padding-x-sm: 0.5rem !default;
-$btn-font-size-sm: $font-size-sm !default;
-
-$btn-padding-y-lg: 0.5rem !default;
-$btn-padding-x-lg: 1rem !default;
-$btn-font-size-lg: $font-size-lg !default;
-
-// 按钮边框
-$btn-border-width: $border-width !default;
-
-// 按钮其他
-$btn-box-shadow: inset 0 1px 0 rgba($white, 0.15), 0 1px 1px rgba($black, 0.075) !default;
-$btn-disabled-opacity: 0.65 !default;
-
-// 链接按钮
-$btn-link-color: $link-color !default;
-$btn-link-hover-color: $link-hover-color !default;
-$btn-link-disabled-color: $gray-600 !default;
-
-// 按钮 radius
-$btn-border-radius: $border-radius !default;
-$btn-border-radius-lg: $border-radius-lg !default;
-$btn-border-radius-sm: $border-radius-sm !default;
-
-$btn-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
-  border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out !default;
+// alert
+$alert-font-size: $font-size-base;
+$alert-transition: color 0.15s ease-in-out, border-color 0.15s ease-in-out !default;
+$alert-padding-y: 0.5rem !default;
+$alert-padding-x: 1rem !default;
+$alert-border-radius: $border-radius;
 
 // menu
 $menu-border-width: $border-width !default;
 $menu-border-color: $border-color !default;
-$menu-box-shadow: inset 0 1px 0 rgba($white, 0.15), 0 1px 1px rgba($black, 0.075) !default;
+$menu-box-shadow: inset 0 1px 0 rgba($white, 0.15),
+  0 1px 1px rgba($black, 0.075) !default;
 $menu-transition: color 0.15s ease-in-out, border-color 0.15s ease-in-out !default;
 
 // menu-item
@@ -250,23 +237,24 @@ $menu-item-disabled-color: $gray-600 !default;
 
 //sub-menu
 //submenu
-$submenu-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.12), 0 0 6px 0 rgba(0, 0, 0, 0.04);
+$submenu-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.12),
+  0 0 6px 0 rgba(0, 0, 0, 0.04);
 
 //input
-$input-padding-y: $btn-padding-y !default;
-$input-padding-x: $btn-padding-x !default;
-$input-font-family: $btn-font-family !default;
-$input-font-size: $btn-font-size !default;
+$input-padding-y: 0.375rem !default;
+$input-padding-x: 0.75 !default;
+$input-font-family: $font-family-base !default;
+$input-font-size: $font-size-base !default;
 $input-font-weight: $font-weight-base !default;
-$input-line-height: $btn-line-height !default;
+$input-line-height: $line-height-base !default;
 
-$input-padding-y-sm: $btn-padding-y-sm !default;
-$input-padding-x-sm: $btn-padding-x-sm !default;
-$input-font-size-sm: $btn-font-size-sm !default;
+$input-padding-y-sm: 0.25rem !default;
+$input-padding-x-sm: 0.5rem !default;
+$input-font-size-sm: $font-size-sm !default;
 
-$input-padding-y-lg: $btn-padding-y-lg !default;
-$input-padding-x-lg: $btn-padding-x-lg !default;
-$input-font-size-lg: $btn-font-size-lg !default;
+$input-padding-y-lg: 0.5rem !default;
+$input-padding-x-lg: 1rem !default;
+$input-font-size-lg: $font-size-lg !default;
 
 $input-bg: $white !default;
 $input-disabled-bg: $gray-200 !default;

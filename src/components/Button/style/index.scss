@@ -1,5 +1,6 @@
-$btn-sizes: (lg, small);
-$btn-types: (primary, link, danger, default);
+@import './variables';
+@import './mixin';
+
 .btn {
   position: relative;
   display: inline-block;
@@ -52,12 +53,10 @@ $btn-types: (primary, link, danger, default);
 }
 
 // btn-types
-.btn-primary {
-  @include button-style($primary, $primary, $white);
-}
-
-.btn-danger {
-  @include button-style($danger, $danger, $white);
+@each $type in $function-types {
+  .btn-#{$type} {
+    @include button-style(map-get($function-colors, $type), map-get($function-colors, $type), $white)
+  }
 }
 
 .btn-default {
